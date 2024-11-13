@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Retro Bowl Manager Edition</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="game">
+        <h1>Retro Bowl Manager Edition</h1>
+        <div id="menu">
+            <button onclick="showSection('character')">Character Customization</button>
+            <button onclick="showSection('team')">Team Management</button>
+            <button onclick="showSection('facilities')">Facilities</button>
+            <button onclick="showSection('transfer')">Transfer Market</button>
+            <button onclick="startMatch()">Play Match</button>
+            <button onclick="simulateSeason()">Simulate Season</button>
+        </div>
+
+        <div id="content">
+            <!-- Character Customization Section -->
+            <div id="character" class="section">
+                <h2>Customize Your Character</h2>
+                <input type="text" id="characterName" placeholder="Enter Character Name" />
+                <input type="text" id="teamName" placeholder="Enter Your Team Name" />
+                <button onclick="saveCharacter()">Save Character</button>
+                <p id="characterInfo">No character selected</p>
+                <p id="teamInfo">Team Name: No Team</p>
+            </div>
+
+            <!-- Team Management Section -->
+            <div id="team" class="section">
+                <h2>Your Team</h2>
+                <div id="teamList"></div>
+                <p><strong>Offensive Rating:</strong> <span id="offensiveRating">0</span></p>
+                <p><strong>Defensive Rating:</strong> <span id="defensiveRating">0</span></p>
+            </div>
+
+            <!-- Facilities Section -->
+            <div id="facilities" class="section">
+                <h2>Facilities</h2>
+                <p>Training Level: <span id="trainingLevel">1</span></p>
+                <p>Stadium Level: <span id="stadiumLevel">1</span></p>
+                <p>Coach Rating: <span id="coachRating">1</span></p>
+                <button onclick="upgradeFacility('training')">Upgrade Training (Cost: $500)</button>
+                <button onclick="upgradeFacility('stadium')">Upgrade Stadium (Cost: $500)</button>
+                <button onclick="upgradeCoach()">Upgrade Coach (Cost: $1000)</button>
+            </div>
+
+            <!-- Transfer Market Section -->
+            <div id="transfer" class="section">
+                <h2>Transfer Market</h2>
+                <p>Coins: <span id="coins">100</span></p>
+                <button onclick="refreshMarket()">Refresh Market (Cost: 10 Coins)</button>
+                <div id="playerMarket"></div>
+            </div>
+
+            <!-- Match Screen Section -->
+            <div id="matchScreen" class="section">
+                <h2>Match Simulation</h2>
+                <div id="scoreboard">
+                    <span>Your Team: <span id="userScore">0</span></span>
+                    <span> | </span>
+                    <span>Opponent: <span id="opponentScore">0</span></span>
+                </div>
+                <div id="matchField">
+                    <div id="leftEnd">Your Team</div>
+                    <div id="centerField">
+                        <div id="ball"></div>
+                    </div>
+                    <div id="rightEnd">Opponent</div>
+                </div>
+                <div id="matchCommentary"></div>
+                <button onclick="endMatch()">End Match</button>
+            </div>
+
+            <div id="stats">
+                <h3>Budget: $<span id="budget">1000</span></h3>
+                <h3>Season Progress: <span id="seasonProgress">0</span></h3>
+                <h3>Season Leaderboard:</h3>
+                <div id="leaderboard"></div>
+            </div>
+        </div>
+    </div>
+
+<script src="script.js"></script>
+</body>
+</html>
